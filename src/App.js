@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Form from "./components/Form";
 
 function App() {
+  const [userInput, setUserInput] = useState("Enter a name");
+  const inputChangeHandler = (input) => {
+    setUserInput(input);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Form onGetInput={inputChangeHandler} />
+      <h1>{userInput}</h1>
     </div>
   );
 }
